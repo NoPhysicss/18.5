@@ -26,7 +26,7 @@ int main()
      int plnu;
      std::cin >> plnu;
 
-     Player** p = new Player * [plnu];
+     Player** p = new Player * [plnu]; // вот тут. почему именно так?
 
      for (auto i = 0; i < plnu; i++)
      {
@@ -38,7 +38,7 @@ int main()
          int sc = 0;
          std::cin >> sc;
 
-         p[i] = new Player(name, sc);
+         p[i] = new Player(name, sc); // тут подсказал чат gpt, можете сказать почему именно так, а не через p[i]-> ?(если бы там был допустим функция SetName или SetScore)
      }
      
      std::cout << std::endl;
@@ -64,7 +64,8 @@ int main()
 
 
 
-     for (auto i = 0; i < plnu; ++i) {
+     for (auto i = 0; i < plnu; ++i) 
+     {  // тут тоже подсказал нейронка, но почему по отделности надо все удалять, если есть delete[] ??
          delete p[i];
      }
      delete[] p;
